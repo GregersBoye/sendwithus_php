@@ -123,7 +123,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 		$r = $this->api->send(
 			$this->EMAIL_ID,
 			$this->recipient,
-			array("data" => $this->data)
+			array("email_data" => $this->data)
         );
 
         $this->assertSuccess($r);
@@ -135,7 +135,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
         $r = $this->api->send(
             $this->EMAIL_ID,
             $this->recipient,
-            array("data" => array())
+            array("email_data" => array())
         );
 
         $this->assertSuccess($r);
@@ -147,7 +147,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
         $r = $this->api->send(
             $this->EMAIL_ID,
             $this->recipient,
-            array("data" => null)
+            array("email_data" => null)
         );
 
         $this->assertSuccess($r);
@@ -160,7 +160,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 			$this->EMAIL_ID,
 			$this->recipient,
 			array(
-                "data" => $this->data,
+                "email_data" => $this->data,
                 "sender" => $this->sender
             )
         );
@@ -175,7 +175,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 			$this->EMAIL_ID,
 			$this->recipient,
 			array(
-                "data" => $this->data,
+                "email_data" => $this->data,
                 "cc" => $this->cc
             )
         );
@@ -190,7 +190,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 			$this->EMAIL_ID,
 			$this->recipient,
 			array(
-                "data" => $this->data,
+                "email_data" => $this->data,
                 "bcc" => $this->bcc
             )
         );
@@ -205,7 +205,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
             $this->EMAIL_ID,
             $this->recipient,
             array(
-                "data" => $this->data,
+                "email_data" => $this->data,
                 "inline" => $this->inline
             )
         );
@@ -220,7 +220,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
             $this->EMAIL_ID,
             $this->recipient,
             array(
-                "data" => $this->data,
+                "email_data" => $this->data,
                 "tags" => $this->tags
             )
         );
@@ -235,7 +235,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 			$this->EMAIL_ID,
 			$this->incompleteRecipient,
 			array(
-                "data" => $this->data,
+                "email_data" => $this->data,
                 "sender" => $this->sender
             )
         );
@@ -252,7 +252,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 		$r = $api->send(
 			$this->EMAIL_ID,
 			$this->recipient,
-			array("data" => $this->data)
+			array("email_data" => $this->data)
         );
 
 		$this->assertFail($r);
@@ -266,7 +266,7 @@ class APITestCase extends PHPUnit_Framework_TestCase
 		$r = $this->api->send(
 			'INVALID_EMAIL_ID',
 			$this->recipient,
-			array("data" => $this->data)
+			array("email_data" => $this->data)
         );
 
 		$this->assertFail($r);
